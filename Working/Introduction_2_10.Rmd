@@ -9,4 +9,8 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-This is the first markdown for ESM 262 Computing. 
+####This is the first markdown for ESM 262 Computing. 
+
+I didn't really know about data science until I came to Bren and took both of Alison's courses. Since then, I've really learned to enjoy programming and this different way to analyze data. I am taking this course because I want to expand my knowledge about how R Studio and Git work together and take my data science to the next level. 
+
+As I said, I've taken Alison's courses, but my group project and my summer internship had big data science influences. My group project is creating a spatial plan for the west coast of Dominica for sperm whales and vessels. We've created an SQlite database for our data storage, and used R Studio to loop together all of our separate csv's of data. This summer I interned at the University of Hawaii, Manoa in the Geo Hydrology lab. I helped create a Keetch Byram Drought Index (KBDI) from 1994 to 2015. This is an index to help identify drought in Hawaii. There is a continuous system in the continental US, but only one station in Hawaii. I used many loops and kriging to interpolate KBDI through the state. 
