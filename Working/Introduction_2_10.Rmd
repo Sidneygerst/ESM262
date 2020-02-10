@@ -1,0 +1,12 @@
+---
+title: "ESM 262 Intro Paragraphs"
+author: "Sidney Gerst"
+date: "February 10, 2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+This is the first markdown for ESM 262 Computing. 
