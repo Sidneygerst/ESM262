@@ -7,24 +7,26 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
 ```
 
-## R Markdown
+```{r}
+source("Cobian_Gerst_function_hw1.R")
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+hype_sample<- 1000
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+hype_dist<- rnorm(mean = 500, sd = 20, n = hype_sample)
 
-```{r cars}
-summary(cars)
+stoke_sample<- 1000
+
+stoke_dist<- rnorm(mean = 2000, sd = 10, n = stoke_sample)
+
+rad_data<- data.frame(hype = hype_dist, stoke = stoke_dist, rad = NA)
+
+rad_data$rad<- rad_brennie(stoke =stoke_dist, hype = hype_dist)]
+
+rad_plot<- ggplot(rad_data, aes(hype, rad, color = stoke))+
+  geom_point(alpha = 0.2)
+rad_plot
 ```
 
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
