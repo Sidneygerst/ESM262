@@ -11,8 +11,10 @@ library(tidyverse)
 ```
 
 ```{r}
+#Sourced from same folder
 source("Cobian_Gerst_function_hw1.R")
 
+# generate sample hype and stoke from a distribution
 hype_sample<- 1000
 
 hype_dist<- rnorm(mean = 500, sd = 20, n = hype_sample)
@@ -21,12 +23,23 @@ stoke_sample<- 1000
 
 stoke_dist<- rnorm(mean = 2000, sd = 10, n = stoke_sample)
 
+# create data frame with columns hype, stoke, and rad
 rad_data<- data.frame(hype = hype_dist, stoke = stoke_dist, rad = NA)
 
-rad_data$rad<- rad_brennie(stoke =stoke_dist, hype = hype_dist)]
+#create set of outputs of Rad
+rad_data$rad<- rad_brennie(stoke =stoke_dist, hype = hype_dist)
 
-rad_plot<- ggplot(rad_data, aes(hype, rad, color = stoke))+
-  geom_point(alpha = 0.2)
+# plot results
+rad_plot<- ggplot(rad_data, aes(hype, rad/1000, color = stoke))+
+  geom_point(alpha = 0.2) +
+  theme_bw() +
+  theme(plot.title = element_text(hjust = 0.5))+
+  scale_color_gradient(low = "blue", high = "red", name = "Stoke") +
+  labs(title = "Rad Brennie",
+       x = "Hype",
+       y = "Rad")
 rad_plot
 ```
+
+As the amound of Hype and Stoke a Bren studen has the more Rad the student becomes. 
 
