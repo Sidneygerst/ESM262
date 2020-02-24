@@ -17,7 +17,7 @@ source("Cobian_Gerst_function_hw1.R")
 # generate sample hype and stoke from a distribution
 hype_sample<- 1000
 
-hype_dist<- rnorm(mean = 500, sd = 20, n = hype_sample)
+hype_dist<- rnorm(mean = 500, sd = 20, n = hype_sample) 
 
 stoke_sample<- 1000
 
