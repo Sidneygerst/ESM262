@@ -41,5 +41,5 @@ rad_plot<- ggplot(rad_data, aes(hype, rad/1000, color = stoke))+
 rad_plot
 ```
 
-As the amound of Hype and Stoke a Bren studen has the more Rad the student becomes. 
+As the amount of Hype and Stoke a Bren student has the more Rad the student becomes. 
 
