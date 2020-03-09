@@ -2,6 +2,8 @@
 #' 
 #' 
 
+
+########## Set up function##############3
 #types of fish
 fish_array<- c("Halibut", "Red Snapper", "Tuna", "Big Guy", "Little Blue")
 
@@ -22,6 +24,7 @@ fish_catch_location<- matrix(c(fish_catch), nrow = 5, ncol = 4, dimnames = list(
 
 fish_catch_location
 
+############Function##################
 
 fish_function<- function(fish_catch, fish_price){
   
