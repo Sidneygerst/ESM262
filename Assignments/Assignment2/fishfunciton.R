@@ -26,7 +26,7 @@ fish_catch_location
 
 ############Function##################
 
-fish_function<- function(fish_catch, fish_price){
+fish_function<- function(fish_catch, fish_price, plot = F){
   
   #find the most frequent fish per location
   most_frequent = list(colnames(fish_catch_location), rownames(fish_catch_location)[apply(fish_catch_location, 2, which.max)])
@@ -40,18 +40,28 @@ fish_function<- function(fish_catch, fish_price){
   location_revenue_df = as.data.frame(location_revenue)
   
   
+  if(plot){
+    fish_plot<- ggplot(location_revenue_df, aes(x = location_revenue))+
+      geom_bar()
+  }
+  else fish_plot = NULL
+  
   
   return(list(most_frequent_location = most_frequent[[1]], 
               most_frequent_fish = most_frequent[[2]],
               revenue_location = location_revenue_df, 
-              total_revenue = total_revenue))
+              total_revenue = total_revenue,
+              plot = fish_plot))
+  
+  
+
   
   }
   
   
   
   
-
+fish_function(fish_catch, fish_price, plot = T)
 
 
 
