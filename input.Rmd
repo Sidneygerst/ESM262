@@ -1,0 +1,37 @@
+---
+title: "input"
+author: "Tyler Cobian"
+date: "3/9/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Make the input for the fish_function
+```{r}
+source("fishfunction.R")
+
+########## Set up function##############3
+#types of fish
+fish_array<- c("Halibut", "Red Snapper", "Tuna", "Big Guy", "Little Blue")
+
+#fish price
+fish_price<- c(100, 70, 90, 150, 90)
+
+#fish price by the type of fish
+fish_price<- matrix(c(fish_price), nrow = 5, ncol = 1, byrow = T, dimnames = list(c(fish_array), c("fish_price")))
+
+#create a sample of fish catches
+fish_catch<- sample(5:120, 100, replace = FALSE)
+
+#locations of fisheries
+fish_locations<-  c("Santa_Barbara", "Long_Beach", "Santa_Cruz", "Portland")
+
+#final matrix that has the number of fish catch and price by the fish array
+fish_catch_location<- matrix(c(fish_catch), nrow = 5, ncol = 4, dimnames = list(c(fish_array), c(fish_locations)))
+
+fish_catch_location
+```
+
