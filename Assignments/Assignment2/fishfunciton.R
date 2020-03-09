@@ -2,62 +2,52 @@
 #' 
 #' 
 
-
+#types of fish
 fish_array<- c("Halibut", "Red Snapper", "Tuna", "Big Guy", "Little Blue")
 
+#fish price
 fish_price<- c(100, 70, 90, 150, 90)
 
+#fish price by the type of fish
 fish_price<- matrix(c(fish_price), nrow = 5, ncol = 1, byrow = T, dimnames = list(c(fish_array), c("fish_price")))
 
+#create a sample of fish catches
 fish_catch<- sample(5:120, 100, replace = FALSE)
 
+#locations of fisheries
 fish_locations<-  c("Santa_Barbara", "Long_Beach", "Santa_Cruz", "Portland")
 
+#final matrix that has the number of fish catch and price by the fish array
 fish_catch_location<- matrix(c(fish_catch), nrow = 5, ncol = 4, dimnames = list(c(fish_array), c(fish_locations)))
 
-# make a data set for fish
-fish<- data.frame(
-  row.names = c("Halibut", "Red Snapper", "Tuna", "Big Guy", "Little Blue"),
-  Santa_Barbara = c(100, 30, 50, 20, 90), 
-  Long_Beach = c(80, 10, 20, 90, 70),
-  Santa_Cruz = c(90, 80, 200, 55, 40), 
-  Portland = c(290, 50, 80, 55, 40),
-  Price = c(100, 70, 90, 150, 90))
+fish_catch_location
 
-Price = c(100, 70, 90, 150, 90)
 
 fish_function<- function(fish_catch, fish_price){
+  
+  #find the most frequent fish per location
   most_frequent = list(colnames(fish_catch_location), rownames(fish_catch_location)[apply(fish_catch_location, 2, which.max)])
   
-  fish %>% 
-    apply(mutate(Santa_Barbara_rev = Santa_Barbara*Price))
+  #total revenue
+  total_revenue = sum(fish_price[,1]*fish_catch)
   
-  fish_unique <- fish %>% 
-    rownames_to_column()
+  #revenue by location
+  location_revenue = fish_price[,1]*fish_catch_location
+  location_revenue = colSums(location_revenue)
+  location_revenue_df = as.data.frame(location_revenue)
   
-  colnames(fish_unique)<- c("Species", "Santa_Barbara", "Long_Beach", "Santa_Cruz", "Portland", "Price")
   
   
-  #location_revenue = unique(colSums(fish_unique[,2:5])) 
-  
-  fish_revenue = fish_catch_location %>% 
-    mutate_each(funs(.*Price), 2:5) 
-  
-  location_revenue<- colSums(fish_catch_location[2:5])
-  
-  total_revenue<- sum(location_revenue)
-  
-  return(most_frequent, location_revenue, total_revenue)
+  return(list(most_frequent_location = most_frequent[[1]], 
+              most_frequent_fish = most_frequent[[2]],
+              revenue_location = location_revenue_df, 
+              total_revenue = total_revenue))
   
   }
   
   
   
   
-  #fish_cols = c(Santa_Barbara, Long_Beach, Santa_Cruz, Portland)
-  #revenue_location = lapply(.SD function(x) x*fish[['Price']], )
-
-} 
 
 
 
