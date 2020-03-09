@@ -1,12 +1,13 @@
 ---
 title: "input"
-author: "Tyler Cobian"
+author: "Tyler Cobian, Sidney Gerst"
 date: "3/9/2020"
 output: html_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
 ```
 
 Make the input for the fish_function
@@ -33,5 +34,11 @@ fish_locations<-  c("Santa_Barbara", "Long_Beach", "Santa_Cruz", "Portland")
 fish_catch_location<- matrix(c(fish_catch), nrow = 5, ncol = 4, dimnames = list(c(fish_array), c(fish_locations)))
 
 fish_catch_location
+
+
+######### Run Function ############
+fishfunction(fish_catch, fish_price, plot = T)
+
+
 ```
 
